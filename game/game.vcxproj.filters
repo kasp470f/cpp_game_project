@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="Intro.cpp" />
+    <ClCompile Include="Hero.cpp">
+      <Filter>Characters\PC</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Intro.h" />
+    <ClInclude Include="Hero.h">
+      <Filter>Characters\PC</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Characters">
+      <UniqueIdentifier>{439c1d40-2cd6-4b62-969a-7276d7a7e4d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Characters\PC">
+      <UniqueIdentifier>{0616c87e-0092-44c0-af05-55ec5cb09bc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Characters\NPC">
+      <UniqueIdentifier>{ecf2994d-b68f-4d33-a9bd-f5914d19bdb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Characters\NPC\Monsters">
+      <UniqueIdentifier>{2503dad2-16b3-44e5-b979-f7bd2a0d90ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Characters\NPC\Vendors">
+      <UniqueIdentifier>{2ee0bb01-52f0-4607-a04e-43ffdce74332}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
