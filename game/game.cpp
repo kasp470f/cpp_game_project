@@ -1,11 +1,11 @@
-// game.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include "Monsters/Monster.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	Monster s("Goblin", 10, 5, 5, 5, 7, 9);
+	s.printStats();
+	s.~Monster();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
