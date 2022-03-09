@@ -10,16 +10,23 @@ Intro::~Intro()
 {
 }
 
-void Intro::initIntro()
+void Intro::initIntro(Hero &hero)
 {
 	string name;
-	cout << "Welcome to the TEMPLE OF DOOM";
+	cout << "Welcome to the TOWER OF DOOM";
 	cout << endl;
 
 	cout << "Enter your hero's name: ";
 	getline(cin, name);
 
 	hero.initialize(name);
+	this->hero = hero;
+
+	while (getPlaying())
+	{
+		system("cls");
+		mainMenu();
+	}
 }
 
 void Intro::mainMenu()
@@ -30,13 +37,18 @@ void Intro::mainMenu()
 	cout << endl;
 	cout << "0: Quit Game" << endl;
 
-	cin >> choice;
-	cout << endl;
+	string input;
+	do
+	{
+		cin >> input;
+	} while (!isdigit(input[0]));
 
+	choice = stoi(input);
+	cout << endl;
 	switch (choice)
 	{
 	case 1:
-		playing = true;
+		playing = false;
 		break;
 
 	case 2:
@@ -50,7 +62,7 @@ void Intro::mainMenu()
 		break;
 
 	case 0:
-		playing = false;
+		exit(1);
 		break;
 
 	default:

@@ -13,7 +13,7 @@ public:
 	virtual ~Intro();
 
 	//Funktioner
-	void initIntro();
+	void initIntro(Hero &hero);
 	void mainMenu();
 
 	//Accessor
@@ -22,7 +22,5 @@ public:
 private:
 	int choice;
 	bool playing;
-
-	//Helten i spillet
 	Hero hero;
 };

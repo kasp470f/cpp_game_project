@@ -1,5 +1,16 @@
 #include "Monster.h"
 
+Monster::Monster()
+{
+    this->name = "Goblin";
+    this->health = 10;
+    this->attack = 5;
+    this->defense = 5;
+    this->speed = 2;
+    this->exp = 5;
+    this->gold = 5;
+}
+
 Monster::Monster(string name, int health, int attack, int defense, int speed, int exp, int gold)
 {
     this->name = name;
@@ -12,6 +23,11 @@ Monster::Monster(string name, int health, int attack, int defense, int speed, in
 }
 
 Monster::~Monster() {
+
+}
+
+void Monster::genMonster(int difficulty)
+{
 
 }
 

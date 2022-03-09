@@ -2,17 +2,16 @@
 //
 
 #include <iostream>
+
+#include "Player/Hero.h"
 #include "Intro.h"
+#include "Tower/Floor/Floor.h"
 
 int main() {
+	Hero hero;
 	Intro intro;
-	intro.initIntro();
+	intro.initIntro(hero);
 
-	while (intro.getPlaying())
-	{
-		intro.mainMenu();
-		system("cls");
-	}
 
 	return 0;
 }

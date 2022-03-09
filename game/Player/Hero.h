@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+using namespace std;
 
 class Hero
 {
@@ -9,11 +10,11 @@ public:
 	virtual ~Hero();
 
 	//Functions
-	void initialize(const std::string name);
+	void initialize(const string name);
 	void printStats() const;
 
 	//Accessors
-	inline const std::string& getName() const { return this->name; }
+	inline const string& getName() const { return this->name; }
 	inline const int& getLevel() const { return this->pcLevel; }
 	inline const int& getAttack() const { return this->attack; }
 	inline const int& getAttackMin() const { return this->attackMin; }
@@ -21,13 +22,14 @@ public:
 	inline const int& getDefense() const { return this->defense; }
 	inline const int& getHealth() const { return this->health; }
 	inline const int& getHealthMax() const { return this->healthMax; }
+	inline const int& getSpeed() const { return this->speed; }
 
 private:
 	//Modifiers
-	std::string name;
+	string name;
 	int pcLevel;
 	int exp;
-	int expNext;
+	double expNext;
 
 	int attack;
 	int attackMin;
@@ -35,5 +37,6 @@ private:
 	int defense;
 	int health;
 	int healthMax;
+	int speed;
 
 };
