@@ -30,6 +30,7 @@ public:
 	inline int getExp() { return exp; };
 	inline int getGold() { return gold; };
 
-	//Encounter-used function
+	//Encounter-used functions
 	void setHealth(int health);
+	void printCombatStats();
 };

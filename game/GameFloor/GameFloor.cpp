@@ -27,16 +27,14 @@ string GameFloor::getFloorName()
 void GameFloor::encounter()
 {
 	//print monster's stats
-	//[HP:10 - ATK : 5 - DEF : 5 - SPD : 5
-	cout << "You encounter a " 
-		<< mob.getName() << " [ HP: "
-		<< mob.getHealth() << " - ATK: "
-		<< mob.getAttack() << " - DEF: "
-		<< mob.getDefense() << " - SPD: "
-		<< mob.getSpeed() << " ]" << endl;
+	cout << "You encounter a ";
+	mob.printCombatStats();
+	
 	//print hero's stats
-	hero.printStats();
-	cout << "What would you like to do? [(A)TTACK] [(F)LEE] [(I)NVENTORY]" << endl;
+	cout << "You have ";
+	hero.printCombatStats();
+	cout << "What would you like to do? [(A)TTACK] [(F)LEE] [OPEN (I)NVENTORY]" << endl;
+
 	char choice;
 	cin >> choice;
 	
@@ -46,24 +44,19 @@ void GameFloor::encounter()
 		attack();
 		break;
 	case 'F':
-		//flee();
-		cout << endl << "-------- You flee... --------" << endl;
+		flee();		
 		break;
 	case 'I':
-		//openInventory();
-		cout << endl << "-------- You open your inventory..." << endl;
+		openInventory();		
 		break;
 	}
 }
 //Gets hero and monster stats and initiates fight after checking fastest speed
 void GameFloor::attack()
 {
-
 	cout << endl << "-------- Attackmode initialized! --------" << endl;
 	bool heroFastest = false;
-	if (hero.getSpeed() < mob.getSpeed()) {
-		heroFastest = true;
-	}
+	if (hero.getSpeed() < mob.getSpeed()) { heroFastest = true; }
 
 	//The stats that - for now - decides the outcome of the encounter
 	int heroAttack = hero.getAttack()+1;
@@ -106,8 +99,10 @@ void GameFloor::attack()
 
 void GameFloor::flee()
 {
+	cout << endl << "-------- You flee... --------" << endl;
 }
 
 void GameFloor::openInventory()
 {
+	cout << endl << "-------- You open your inventory... --------" << endl;
 }

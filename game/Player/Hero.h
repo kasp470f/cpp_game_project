@@ -24,8 +24,9 @@ public:
 	inline const int& getHealthMax() const { return this->healthMax; }
 	inline const int& getSpeed() const { return this->speed; }
 
-	//Encounter-used function
+	//Encounter-used functions
 	void setHealth(int health);
+	void printCombatStats();
 
 private:
 	//Modifiers

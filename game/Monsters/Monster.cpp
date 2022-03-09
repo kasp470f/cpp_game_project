@@ -41,8 +41,13 @@ void Monster::printStats() {
     cout << "Gold: " << gold << endl;
 }
 
-//Encounter-used function
-void Monster::setHealth(int health)
+//Encounter-used functions
+void Monster::setHealth(int health) { this->health = health; }
+void Monster::printCombatStats()
 {
-    this->health = health;
+    cout << getName() << " [ HP: "
+        << getHealth() << " - ATK: "
+        << getAttack() << " - DEF: "
+        << getDefense() << " - SPD: "
+        << getSpeed() << " ]" << endl;
 }
