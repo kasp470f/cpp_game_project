@@ -1,6 +1,5 @@
 #include "GameFloor.h"
-#include <iostream>
-#include <string>
+
 
 GameFloor::GameFloor(int floorLevel)
 {

@@ -139,7 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Tower\Floor\Floor.cpp" />
+    <ClCompile Include="GameFloor\GameFloor.cpp" />
+    
     <ClCompile Include="game.cpp" />
     <ClCompile Include="Intro.cpp" />
     <ClCompile Include="Monsters\Monster.cpp" />
@@ -147,7 +148,8 @@
     <ClCompile Include="Tower\Tower.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Tower\Floor\Floor.h" />
+    <ClInclude Include="GameFloor\GameFloor.h" />
+    
     <ClInclude Include="Intro.h" />
     <ClInclude Include="Monsters\Monster.h" />
     <ClInclude Include="Player\Hero.h" />
