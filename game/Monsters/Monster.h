@@ -20,6 +20,7 @@ public:
 	~Monster();
 
 	void genMonster(int difficulty);
+	void combatStats();
 	void printStats();
 
 	inline string getName() { return name; };
@@ -29,4 +30,6 @@ public:
 	inline int getSpeed() { return speed; };
 	inline int getExp() { return exp; };
 	inline int getGold() { return gold; };
+
+	inline void takeDamage(int damage) { health -= damage; }
 };

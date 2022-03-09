@@ -31,6 +31,11 @@ void Monster::genMonster(int difficulty)
 
 }
 
+void Monster::combatStats()
+{
+    cout << name << " [ HP: " << health << " - ATK: " << attack << " - DEF: " << defense << " - SPD: " << speed << " ]" << endl;
+}
+
 void Monster::printStats() {
     cout << "Name: " << name << endl;
     cout << "Health: " << health << endl;

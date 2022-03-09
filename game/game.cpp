@@ -12,6 +12,7 @@ int main() {
 	Intro intro;
 	intro.initIntro(hero);
 
+	Floor s(hero, 1);
 
 	return 0;
 }

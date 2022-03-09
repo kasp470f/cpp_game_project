@@ -27,6 +27,7 @@ void Intro::initIntro(Hero &hero)
 		system("cls");
 		mainMenu();
 	}
+	system("cls");
 }
 
 void Intro::mainMenu()
