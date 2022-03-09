@@ -5,10 +5,14 @@
     <ClCompile Include="Monsters\Monster.cpp" />
     <ClCompile Include="Player\Hero.cpp" />
     <ClCompile Include="Intro.cpp" />
+    <ClCompile Include="Tower\Tower.cpp" />
+    <ClCompile Include="Tower\Floor\Floor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Monsters\Monster.h" />
     <ClInclude Include="Player\Hero.h" />
     <ClInclude Include="Intro.h" />
+    <ClInclude Include="Tower\Tower.h" />
+    <ClInclude Include="Tower\Floor\Floor.h" />
   </ItemGroup>
 </Project>
