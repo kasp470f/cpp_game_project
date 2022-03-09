@@ -63,32 +63,52 @@ void Floor::Combat()
 			system("cls");
 		}
 
-		// Attack
+		// Attack !THIS NEEDS TO BE MADE MORE EFFICIENT!
 		if (selectedAction == 0) {
 			if (hero->getSpeed() >= enemy.getSpeed()) {
 				if (hero->getHealth() >= 1) {
 					int heroAttackDamage = (int)ceil(hero->getAttackMax() - (enemy.getDefense() / 2));
-					enemy.takeDamage(heroAttackDamage);
-					cout << hero->getName() << " attacked " << enemy.getName() << " for " << heroAttackDamage << " damage!" << endl;
+					if (heroAttackDamage < 0) {
+						enemy.takeDamage(heroAttackDamage);
+						cout << hero->getName() << " attacked " << enemy.getName() << " for " << heroAttackDamage << " damage!" << endl;
+					}
+					else {
+						cout << hero->getName() << " attacked " << enemy.getName() << " but swung to wide and missed" << endl;
+					}
 				}
 
 				if (enemy.getHealth() >= 1) {
 					int enemyAttackDamage = (int)ceil(enemy.getAttack() - (hero->getDefense() / 2));
-					hero->takeDamage(enemyAttackDamage);
-					cout << enemy.getName() << " attacked " << hero->getName() << " for " << enemyAttackDamage << " damage!" << endl;
+					if (enemyAttackDamage < 0) {
+						hero->takeDamage(enemyAttackDamage);
+						cout << enemy.getName() << " attacked " << hero->getName() << " for " << enemyAttackDamage << " damage!" << endl;
+					}
+					else {
+						cout << enemy.getName() << " attacked " << hero->getName() << " but swung to wide and missed" << endl;
+					}
 				}
 			}
 			else {
 				if (enemy.getHealth() >= 1) {
 					int enemyAttackDamage = (int)ceil(enemy.getAttack() - (hero->getDefense() / 2));
-					hero->takeDamage(enemyAttackDamage);
-					cout << enemy.getName() << " attacked " << hero->getName() << " for " << enemyAttackDamage << " damage!" << endl;
+					if (enemyAttackDamage < 0) {
+						hero->takeDamage(enemyAttackDamage);
+						cout << enemy.getName() << " attacked " << hero->getName() << " for " << enemyAttackDamage << " damage!" << endl;
+					}
+					else {
+						cout << enemy.getName() << " attacked " << hero->getName() << " but swung to wide and missed" << endl;
+					}
 				}
 
 				if (hero->getHealth() >= 1) {
 					int heroAttackDamage = (int)ceil(hero->getAttackMax() - (enemy.getDefense() / 2));
-					enemy.takeDamage(heroAttackDamage);
-					cout << hero->getName() << " attacked " << enemy.getName() << " for " << heroAttackDamage << " damage!" << endl;
+					if (heroAttackDamage < 0) {
+						enemy.takeDamage(heroAttackDamage);
+						cout << hero->getName() << " attacked " << enemy.getName() << " for " << heroAttackDamage << " damage!" << endl;
+					}
+					else {
+						cout << hero->getName() << " attacked " << enemy.getName() << " but swung to wide and missed" << endl;
+					}
 				}
 			}
 			Sleep(2000);
