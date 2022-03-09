@@ -40,3 +40,9 @@ void Monster::printStats() {
     cout << "Exp: " << exp << endl;
     cout << "Gold: " << gold << endl;
 }
+
+//Encounter-used function
+void Monster::setHealth(int health)
+{
+    this->health = health;
+}

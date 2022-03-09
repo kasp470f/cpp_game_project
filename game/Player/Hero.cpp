@@ -47,3 +47,9 @@ void Hero::printStats() const //Hvorfor er det vi skal have en 'const' her?
 	std::cout << "* Defense: " << this->defense << std::endl;
 	std::cout << "* Health: " << this->health << " / " << this->healthMax << std::endl;
 }
+
+//Encounter-used function
+void Hero::setHealth(int health)
+{
+	this->health = health;
+}

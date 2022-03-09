@@ -13,7 +13,7 @@ public:
 	~GameFloor();
 	string getFloorName();
 	void encounter();
-	/*void attack();
+	void attack();
 	void flee();
-	void openInventory();*/
+	void openInventory();
 };

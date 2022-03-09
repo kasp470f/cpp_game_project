@@ -4,18 +4,22 @@
 
 //Create a new monster to fight
 Monster mob;
+
+//Create hero
 Hero hero;
 
+//Instantiates a new floor
 GameFloor::GameFloor(int floorLevel)
 {
 	this->FloorLevel = floorLevel;
 	this->FloorName = "Level: " + to_string(FloorLevel);
-	//mob = new Monster();
 }
 
+//Floor destructor
 GameFloor::~GameFloor(){ }
 
-std::string GameFloor::getFloorName()
+//Returns the floor's name
+string GameFloor::getFloorName()
 {
 	return FloorName;
 }
@@ -23,14 +27,15 @@ std::string GameFloor::getFloorName()
 void GameFloor::encounter()
 {
 	//print monster's stats
+	//[HP:10 - ATK : 5 - DEF : 5 - SPD : 5
 	cout << "You encounter a " 
 		<< mob.getName() << " [ HP: "
 		<< mob.getHealth() << " - ATK: "
 		<< mob.getAttack() << " - DEF: "
 		<< mob.getDefense() << " - SPD: "
 		<< mob.getSpeed() << " ]" << endl;
-	//[HP:10 - ATK : 5 - DEF : 5 - SPD : 5
-	//cout << hero.printCombatStats();
+	//print hero's stats
+	hero.printStats();
 	cout << "What would you like to do? [(A)TTACK] [(F)LEE] [(I)NVENTORY]" << endl;
 	char choice;
 	cin >> choice;
@@ -38,63 +43,71 @@ void GameFloor::encounter()
 	switch (toupper(choice))
 	{
 	case 'A':
-		//attack();
-		cout << endl << "You attack!";
+		attack();
 		break;
 	case 'F':
 		//flee();
-		cout << endl << "You flee...";
+		cout << endl << "-------- You flee... --------" << endl;
 		break;
 	case 'I':
 		//openInventory();
-		cout << endl << "You open your inventory...";
+		cout << endl << "-------- You open your inventory..." << endl;
 		break;
 	}
 }
+//Gets hero and monster stats and initiates fight after checking fastest speed
+void GameFloor::attack()
+{
 
-//void GameFloor::attack()
-//{
-//	bool heroFastest = false;
-//	if (hero.getSpeed()>mob.getSpeed()){
-//		heroFastest = true;
-//	}
-//	do 
-//	{
-//		switch (heroFastest)
-//		{
-//			case true:
-//				int heroAttack = hero.getAttack();
-//				cout << "You attack " << mob.getName() << "for " << to_string(heroAttack) << " damage.";
-//				mob.setHealth(mob.getHealth() -= heroAttack);
-//					if (mob.getHealth()>0){
-//						cout << mob.getName() << " has died";
-//					}
-//					else {
-//						cout << mob.getName() << " has " << mob.getHealth() << " HP left";
-//						heroFastest = false;
-//					}
-//				break;
-//			default:
-//				int mobAttack = mob.getAttack();
-//				cout << mob.getName() << " attacks you for " << to_string(mobAttack) << " damage.";
-//				hero.setHealth(hero.getHealth() -= mobAttack);
-//				if (hero.getHealth() <= 0) {
-//					cout << "Your epic adventure has ended."<<endl;
-//					cout << "----------------GAME OVER----------------";
-//				}
-//				else {
-//					cout << "You have " << hero.getHealth() << " HP left";
-//					heroFastest = true;
-//				}
-//				break;
-//		}
-//	} while (hero.getHealth()>0 && mob.getHealth()>0);
-//}
-//
-//void GameFloor::flee()
-//{
-//}
-//
-//void GameFloor::openInventory()
-//{
-//}
+	cout << endl << "-------- Attackmode initialized! --------" << endl;
+	bool heroFastest = false;
+	if (hero.getSpeed() < mob.getSpeed()) {
+		heroFastest = true;
+	}
+
+	//The stats that - for now - decides the outcome of the encounter
+	int heroAttack = hero.getAttack()+1;
+	int heroHealth = hero.getHealth()+20;
+	int mobHealth = mob.getHealth();
+	int mobAttack = mob.getAttack();
+	
+	//Attack mode that switches between combatants
+	do 
+	{		
+		switch (heroFastest)
+		{
+			case true:
+				cout << "You attack " << mob.getName() << " for " << to_string(heroAttack) << " damage." << endl;
+				mobHealth -= heroAttack;
+				if (mobHealth <= 0) {
+					cout << mob.getName() << " has died." << endl;
+				}
+				else {
+					cout << mob.getName() << " has " << to_string(mobHealth) << " HP left." << endl;
+					heroFastest = false;
+				}
+				break;
+			default:				
+				cout << mob.getName() << " attacks you for " << to_string(mobAttack) << " damage." << endl;
+				heroHealth -= mobAttack;
+				if (heroHealth <= 0) {
+					cout << "Your epic adventure has ended!"<<endl;
+					cout << "---------------- GAME OVER! ----------------" << endl;
+				}
+				else {
+					cout << "You have " << to_string(heroHealth) << " HP left." << endl;
+					heroFastest = true;
+				}
+				break;
+		}
+	} while (heroHealth > 0 && mobHealth > 0);
+	hero.setHealth(heroHealth);
+}
+
+void GameFloor::flee()
+{
+}
+
+void GameFloor::openInventory()
+{
+}

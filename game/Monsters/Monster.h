@@ -29,4 +29,7 @@ public:
 	inline int getSpeed() { return speed; };
 	inline int getExp() { return exp; };
 	inline int getGold() { return gold; };
+
+	//Encounter-used function
+	void setHealth(int health);
 };
