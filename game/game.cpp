@@ -5,13 +5,16 @@
 
 #include "Player/Hero.h"
 #include "Intro.h"
-#include "Tower/Floor/Floor.h"
+#include "GameFloor/GameFloor.h"
 
 int main() {
-	Hero hero;
+	GameFloor gameFloor(1);
+	std::cout << gameFloor.getFloorName() << endl;
+	gameFloor.encounter();
+	/*Hero hero;
 	Intro intro;
-	intro.initIntro(hero);
-
+	intro.initIntro(hero);*/
+	
 
 	return 0;
 }
