@@ -23,7 +23,8 @@ int main() {
 
 	intro.initIntro(hero);
 
-while (intro.getPlaying())
+	while (intro.getPlaying())
 	{
 		intro.mainMenu();
 	}
+}
