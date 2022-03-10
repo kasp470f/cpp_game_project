@@ -59,12 +59,13 @@ void Intro::mainMenu()
 	cout << endl;
 
 	//Hvorfor kan denne ikke initialiseres i case 1 først?
-	Floor lvl(hero, 1);
+	Floor* lvl;
 
 	switch (choice)
 	{
 	case 1:
 		system("cls");
+		lvl= new Floor(hero, 1);
 		playing = true;
 		break;
 
