@@ -15,6 +15,10 @@ private:
 	int floorLevel;
 
 	void encounter();
+	void heroAttack();
+	void enemyAttack();
+	bool willHeroHit();
+	bool willEnemyHit();
 
 public:	
 	Floor(Hero &hero, int floorLevel);

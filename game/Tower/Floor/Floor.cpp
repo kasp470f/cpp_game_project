@@ -18,10 +18,46 @@ Floor::Floor(Hero& hero, int floorLevel)
 //Floor destructor
 Floor::~Floor(){ }
 
+bool Floor::willHeroHit()
+{
+	int heroAttackChance = rand() % 100 + 1;
+	if (heroAttackChance <= 75) { return true; }
+	return false;
+}
+
+bool Floor::willEnemyHit()
+{
+	int enemyAttackChance = rand() % 100 + 1;
+	if (enemyAttackChance <= 60) { return true; }
+	return false;
+}
+
+void Floor::heroAttack() {
+	int heroAttackDamage = (int)ceil(hero->getAttackMax() - (enemy.getDefense() / 2));
+	if (heroAttackDamage > 0 && willHeroHit()) {
+		enemy.takeDamage(heroAttackDamage);
+		cout << hero->getName() << " attacked " << enemy.getName() << " for " << heroAttackDamage << " damage!" << endl;
+	}
+	else {
+		cout << hero->getName() << " attacked " << enemy.getName() << " but swung too wide and missed" << endl;
+	}
+}
+
+void Floor::enemyAttack() {
+	int enemyAttackDamage = (int)ceil(enemy.getAttack() + 1 - (hero->getDefense() / 2));
+	if (enemyAttackDamage > 0 && willEnemyHit()) {
+		hero->takeDamage(enemyAttackDamage);
+		cout << enemy.getName() << " attacked " << hero->getName() << " for " << enemyAttackDamage << " damage!" << endl;
+	}
+	else {
+		cout << enemy.getName() << " attacked " << hero->getName() << " but swung too wide and missed" << endl;
+	}
+}
+
 void Floor::encounter()
 {
 	system("cls");
-	while (hero->getHealth() >= 1 || enemy.getHealth() >= 1)
+	while (hero->getHealth() >= 1 && enemy.getHealth() >= 1)
 	{
 		int selectedAction = 0;
 		bool checkingAction = true;
@@ -69,53 +105,18 @@ void Floor::encounter()
 			system("cls");
 		};
 
+		
+
 		// Attack !THIS NEEDS TO BE MADE MORE EFFICIENT!
 		if (selectedAction == 0) {
-			if (hero->getSpeed() >= enemy.getSpeed()) {
-				if (hero->getHealth() >= 1) {
-					int heroAttackDamage = (int)ceil(hero->getAttackMax() - (enemy.getDefense() / 2));
-					if (heroAttackDamage < 0) {
-						enemy.takeDamage(heroAttackDamage);
-						cout << hero->getName() << " attacked " << enemy.getName() << " for " << heroAttackDamage << " damage!" << endl;
-					}
-					else {
-						cout << hero->getName() << " attacked " << enemy.getName() << " but swung too wide and missed" << endl;
-					}
-				}
-
-				if (enemy.getHealth() >= 1) {
-					int enemyAttackDamage = (int)ceil(enemy.getAttack() - (hero->getDefense() / 2));
-					if (enemyAttackDamage < 0) {
-						hero->takeDamage(enemyAttackDamage);
-						cout << enemy.getName() << " attacked " << hero->getName() << " for " << enemyAttackDamage << " damage!" << endl;
-					}
-					else {
-						cout << enemy.getName() << " attacked " << hero->getName() << " but swung too wide and missed" << endl;
-					}
-				}
+			//lowest attackspeed hits first
+			if (hero->getSpeed() < enemy.getSpeed()) {
+				heroAttack();
+				enemyAttack();				
 			}
-			else {
-				if (enemy.getHealth() >= 1) {
-					int enemyAttackDamage = (int)ceil(enemy.getAttack() - (hero->getDefense() / 2));
-					if (enemyAttackDamage < 0) {
-						hero->takeDamage(enemyAttackDamage);
-						cout << enemy.getName() << " attacked " << hero->getName() << " for " << enemyAttackDamage << " damage!" << endl;
-					}
-					else {
-						cout << enemy.getName() << " attacked " << hero->getName() << " but swung too wide and missed" << endl;
-					}
-				}
-
-				if (hero->getHealth() >= 1) {
-					int heroAttackDamage = (int)ceil(hero->getAttackMax() - (enemy.getDefense() / 2));
-					if (heroAttackDamage < 0) {
-						enemy.takeDamage(heroAttackDamage);
-						cout << hero->getName() << " attacked " << enemy.getName() << " for " << heroAttackDamage << " damage!" << endl;
-					}
-					else {
-						cout << hero->getName() << " attacked " << enemy.getName() << " but swung too wide and missed" << endl;
-					}
-				}
+			else {				
+				enemyAttack();
+				heroAttack();				
 			}
 			Sleep(3000);
 		}
@@ -124,17 +125,19 @@ void Floor::encounter()
 			int increasedDefense = hero->getDefense() + 5;
 			hero->setDefense(increasedDefense);
 			cout << hero->getName() << " increased his defense by 5, bringing it up to " << increasedDefense << endl;
-
-			int enemyAttackDamage = (int)ceil(enemy.getAttack() - (hero->getDefense() / 2));
-			hero->takeDamage(enemyAttackDamage);
-			cout << enemy.getName() << " attacked " << hero->getName() << " for " << enemyAttackDamage << " damage!" << endl;
+			enemyAttack();
 
 			hero->setDefense(increasedDefense - 5);
 			cout << hero->getName() << "'s increased defense has returned to its normal state of " << hero->getDefense() << endl;
 			Sleep(3000);
 		}
-		else if(selectedAction == 3)
-		{
+		else if (selectedAction == 2){
+			system("cls");
+			openInventory();
+			Sleep(1000);
+			break;
+		}
+		else if(selectedAction == 3){
 			system("cls");
 			flee();
 			Sleep(1000);
@@ -143,87 +146,26 @@ void Floor::encounter()
 
 		system("cls");
 	};
+	if (hero->getHealth() <= 0) {
+		cout << "Your epic adventure has ended!"<<endl;
+		cout << "---------------- GAME OVER! ----------------" << endl;
+		Sleep(2000);
+	}
+	if (enemy.getHealth()<=0)
+	{
+		cout << enemy.getName() << " has died!" << endl;
+		Sleep(2000);
+	}
 }
-
-//void Floor::encounter()
-//{
-//	//print monster's stats
-//	cout << "You encounter a ";
-//	mob.printCombatStats();
-//	
-//	//print hero's stats
-//	cout << "You have ";
-//	hero.printCombatStats();
-//	cout << "What would you like to do? [(A)TTACK] [(F)LEE] [OPEN (I)NVENTORY]" << endl;
-//
-//	char choice;
-//	cin >> choice;
-//	
-//	switch (toupper(choice))
-//	{
-//	case 'A':
-//		attack();
-//		break;
-//	case 'F':
-//		flee();		
-//		break;
-//	case 'I':
-//		openInventory();		
-//		break;
-//	}
-//}
-//Gets hero and monster stats and initiates fight after checking fastest speed
-//void Floor::attack()
-//{
-//	cout << endl << "-------- Attackmode initialized! --------" << endl;
-//	bool heroFastest = false;
-//	if (hero.getSpeed() < mob.getSpeed()) { heroFastest = true; }
-//
-//	//The stats that - for now - decides the outcome of the encounter
-//	int heroAttack = hero.getAttack()+1;
-//	int heroHealth = hero.getHealth()+20;
-//	int mobHealth = mob.getHealth();
-//	int mobAttack = mob.getAttack();
-//	
-//	//Attack mode that switches between combatants
-//	do 
-//	{		
-//		switch (heroFastest)
-//		{
-//			case true:
-//				cout << "You attack " << mob.getName() << " for " << to_string(heroAttack) << " damage." << endl;
-//				mobHealth -= heroAttack;
-//				if (mobHealth <= 0) {
-//					cout << mob.getName() << " has died." << endl;
-//				}
-//				else {
-//					cout << mob.getName() << " has " << to_string(mobHealth) << " HP left." << endl;
-//					heroFastest = false;
-//				}
-//				break;
-//			default:				
-//				cout << mob.getName() << " attacks you for " << to_string(mobAttack) << " damage." << endl;
-//				heroHealth -= mobAttack;
-//				if (heroHealth <= 0) {
-//					cout << "Your epic adventure has ended!"<<endl;
-//					cout << "---------------- GAME OVER! ----------------" << endl;
-//				}
-//				else {
-//					cout << "You have " << to_string(heroHealth) << " HP left." << endl;
-//					heroFastest = true;
-//				}
-//				break;
-//		}
-//	} while (heroHealth > 0 && mobHealth > 0);
-//	hero.setHealth(heroHealth);
-//}
 
 void Floor::flee()
 {
-	cout << endl << "-------- You flee... --------" << endl;
+	cout << "-------- You flee... --------" << endl;
+	cout << "(impementation in progress)" << endl;
 }
 
 void Floor::openInventory()
 {
 	cout << endl << "-------- You open your inventory... --------" << endl;
+	cout << "(impementation in progress)" << endl;
 }

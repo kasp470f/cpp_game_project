@@ -52,7 +52,7 @@ void Hero::printStats() const
 //Encounter-used functions
 void Hero::printCombatStats()
 {
-	cout << "[ HP: " << health 
+	cout << name <<" [ HP: " << health 
 		<< " - ATK: " << attackMax 
 		<< " - DEF: " << defense
 		<< " - SPD: "<< speed 

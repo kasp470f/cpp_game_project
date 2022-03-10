@@ -46,7 +46,7 @@ void Monster::printStats() {
 void Monster::printCombatStats()
 {
     cout << name 
-        << "[ HP: " << health
+        << " [ HP: " << health
         << " - ATK: " << attack
         << " - DEF: " << defense
         << " - SPD: " << speed
