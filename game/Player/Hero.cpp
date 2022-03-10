@@ -37,13 +37,13 @@ void Hero::initialize(std::string name)
 
 void Hero::printStats() const //Hvorfor er det vi skal have en 'const' her?
 {
-	std::cout << "~~** YOUR HERO's STATS **~~" << std::endl;
-	std::cout << "* Name: " << this->name << std::endl;
-	std::cout << "* Level: " << this->pcLevel << std::endl;
-	std::cout << "* Exp: " << this->exp << std::endl;
-	std::cout << "* Next Level: " << this->expNext << std::endl;
-	std::cout << std::endl;
-	std::cout << "* Attack: " << this->attackMin << " - " << this->attackMax << std::endl;
-	std::cout << "* Defense: " << this->defense << std::endl;
-	std::cout << "* Health: " << this->health << " / " << this->healthMax << std::endl;
+	cout << "~~** YOUR HERO's STATS **~~" << std::endl;
+	cout << "* Name: " << this->name << std::endl;
+	cout << "* Level: " << this->pcLevel << std::endl;
+	cout << "* Exp: " << this->exp << std::endl;
+	cout << "* Next Level: " << this->expNext << std::endl;
+	cout << std::endl;
+	cout << "* Attack: " << this->attackMin << " - " << this->attackMax << std::endl;
+	cout << "* Defense: " << this->defense << std::endl;
+	cout << "* Health: " << this->health << " / " << this->healthMax << std::endl;
 }

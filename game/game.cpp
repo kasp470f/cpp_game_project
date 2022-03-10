@@ -5,13 +5,29 @@
 
 #include "Player/Hero.h"
 #include "Intro.h"
-#include "Tower/Floor/Floor.h"
+//#include "Tower/Tower.h"
 
 int main() {
 	Hero hero;
 	Intro intro;
+
+	//Inventory inv;
+	//inv.addItem(Item());
+	//inv.addItem(Item());
+	//inv.addItem(Item());
+	//inv.addItem(Item());
+	//inv.addItem(Item());
+	//inv.addItem(Item());
+	//inv.addItem(Item());
+
+	//inv.debugPrint();
+
 	intro.initIntro(hero);
 
+	while (intro.getPlaying())
+	{
+		intro.mainMenu();
+	}
 
 	return 0;
 }
