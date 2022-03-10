@@ -4,12 +4,26 @@
 #include <iostream>
 #include "Player/Hero.h"
 #include "Intro.h"
-#include "Tower/Floor/Floor.h"
+//#include "Tower/Tower.h"
 
 int main() {
 	Hero hero;
 	Intro intro;
+
+	//Inventory inv;
+	//inv.addItem(Item());
+	//inv.addItem(Item());
+	//inv.addItem(Item());
+	//inv.addItem(Item());
+	//inv.addItem(Item());
+	//inv.addItem(Item());
+	//inv.addItem(Item());
+
+	//inv.debugPrint();
+
 	intro.initIntro(hero);
-	
-	return 0;
-}
+
+while (intro.getPlaying())
+	{
+		intro.mainMenu();
+	}

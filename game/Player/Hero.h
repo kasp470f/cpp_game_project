@@ -1,7 +1,6 @@
 #pragma once
-#include <string>
-#include <iostream>
-using namespace std;
+
+#include "../Inventory.h"
 
 class Hero
 {

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Player/Hero.h"
+#include "Inventory.h"
 #include <string>
 #include <iostream>
 #include <iomanip>
@@ -15,6 +16,7 @@ public:
 
 	//Funktioner
 	void initIntro(Hero &hero);
+	void initInventory(Item& item);
 	void mainMenu();
 
 	//Accessor
