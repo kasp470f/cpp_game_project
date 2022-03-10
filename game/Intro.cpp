@@ -10,7 +10,7 @@ Intro::~Intro()
 {
 }
 
-void Intro::initIntro(Hero &hero)
+void Intro::initIntro(Hero& hero)
 {
 	string name;
 	cout << "Welcome to the TOWER OF DOOM";
@@ -31,9 +31,20 @@ void Intro::initIntro(Hero &hero)
 
 void Intro::mainMenu()
 {
+	Inventory inv;
+
+	inv.addItem(Item());
+	inv.addItem(Item());
+	inv.addItem(Item());
+	inv.addItem(Item());
+	inv.addItem(Item());
+	inv.addItem(Item());
+	inv.addItem(Item());
+
 	cout << "1: Enter the Tower of Doom" << endl;
-	cout << "2: Buy gear" << endl;
+	cout << "2: Buy gear (Not working atm)" << endl;
 	cout << "3: Character Stats" << endl;
+	cout << "4: Inventory" << endl;
 	cout << endl;
 	cout << "0: Quit Game" << endl;
 
@@ -52,12 +63,18 @@ void Intro::mainMenu()
 		break;
 
 	case 2:
-		playing = true;
+		playing = false;
 		break;
 
 	case 3:
 		system("cls");
 		hero.printStats();
+		system("pause");
+		break;
+
+	case 4:
+		system("cls");
+		inv.debugPrint();
 		system("pause");
 		break;
 
