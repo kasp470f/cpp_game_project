@@ -1,4 +1,5 @@
 #include "Intro.h"
+#include "Tower/Floor/Floor.h"
 
 Intro::Intro()
 {
@@ -45,10 +46,15 @@ void Intro::mainMenu()
 
 	choice = stoi(input);
 	cout << endl;
+
+	//Hvorfor kan denne ikke initialiseres i case 1 først?
+	Floor lvl(hero, 1);
+
 	switch (choice)
 	{
 	case 1:
-		playing = false;
+		system("cls");
+		playing = true;
 		break;
 
 	case 2:

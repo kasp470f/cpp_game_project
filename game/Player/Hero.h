@@ -25,8 +25,10 @@ public:
 	inline const int& getSpeed() const { return this->speed; }
 
 	//Encounter-used functions
-	void setHealth(int health);
 	void printCombatStats();
+	inline void takeDamage(int damage) { health -= damage; }
+	inline void setDefense(int defense) { this->defense = defense; }
+
 
 private:
 	//Modifiers
@@ -42,5 +44,4 @@ private:
 	int health;
 	int healthMax;
 	int speed;
-
 };

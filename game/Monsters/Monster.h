@@ -22,15 +22,15 @@ public:
 	void genMonster(int difficulty);
 	void printStats();
 
-	inline string getName() { return name; };
-	inline int getHealth() { return health; };
-	inline int getAttack() { return attack; };
-	inline int getDefense() { return defense; };
-	inline int getSpeed() { return speed; };
-	inline int getExp() { return exp; };
-	inline int getGold() { return gold; };
+	inline const string& getName() const { return name; };
+	inline const int& getHealth() const { return health; };
+	inline const int& getAttack() const { return attack; };
+	inline const int& getDefense() const { return defense; };
+	inline const int& getSpeed() const { return speed; };
+	inline const int& getExp() const { return exp; };
+	inline const int& getGold() const { return gold; };
 
 	//Encounter-used functions
-	void setHealth(int health);
 	void printCombatStats();
+	inline void takeDamage(int damage) { health -= damage; }
 };

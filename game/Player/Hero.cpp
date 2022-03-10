@@ -4,13 +4,13 @@ Hero::Hero()
 {
 	this->name = "";
 	this->pcLevel = 1;
-
 	this->attack = 0;
 	this->attackMin = 0;
 	this->attackMax = 0;
 	this->defense = 0;
 	this->health = 0;
 	this->healthMax = 0;
+	this->speed = 0;
 }
 
 Hero::~Hero()
@@ -33,28 +33,28 @@ void Hero::initialize(std::string name)
 	this->defense = 10;
 	this->health = 10;
 	this->healthMax = 10;
+	this->speed = 1;
 }
 
-void Hero::printStats() const //Hvorfor er det vi skal have en 'const' her?
+void Hero::printStats() const
 {
-	std::cout << "~~** YOUR HERO's STATS **~~" << std::endl;
-	std::cout << "* Name: " << this->name << std::endl;
-	std::cout << "* Level: " << this->pcLevel << std::endl;
-	std::cout << "* Exp: " << this->exp << std::endl;
-	std::cout << "* Next Level: " << this->expNext << std::endl;
-	std::cout << std::endl;
-	std::cout << "* Attack: " << this->attackMin << " - " << this->attackMax << std::endl;
-	std::cout << "* Defense: " << this->defense << std::endl;
-	std::cout << "* Health: " << this->health << " / " << this->healthMax << std::endl;
+	cout << "~~** YOUR HERO's STATS **~~" << endl;
+	cout << "* Name: " << this->name << endl;
+	cout << "* Level: " << this->pcLevel << endl;
+	cout << "* Exp: " << this->exp << endl;
+	cout << "* Next Level: " << this->expNext << endl;
+	cout << endl;
+	cout << "* Attack: " << this->attackMin << " - " << this->attackMax << endl;
+	cout << "* Defense: " << this->defense << endl;
+	cout << "* Health: " << this->health << " / " << this->healthMax << endl;
 }
 
 //Encounter-used functions
-void Hero::setHealth(int health) { this->health = health; }
 void Hero::printCombatStats()
 {
-	cout << "[ HP: "
-		<< getHealth() << " - ATK: "
-		<< getAttack() << " - DEF: "
-		<< getDefense() << " - SPD: "
-		<< getSpeed() << " ]" << endl;
+	cout << "[ HP: " << health 
+		<< " - ATK: " << attackMax 
+		<< " - DEF: " << defense
+		<< " - SPD: "<< speed 
+		<< " ]" << endl;
 }
