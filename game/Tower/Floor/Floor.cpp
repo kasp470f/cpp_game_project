@@ -137,7 +137,7 @@ void Floor::encounter()
 		{
 			system("cls");
 			flee();
-			Sleep(3000);
+			Sleep(1000);
 			break;
 		}
 
