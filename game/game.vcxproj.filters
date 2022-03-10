@@ -5,8 +5,8 @@
     <ClCompile Include="Monsters\Monster.cpp" />
     <ClCompile Include="Player\Hero.cpp" />
     <ClCompile Include="Intro.cpp" />
-	  <!--<ClCompile Include="Tower\Tower.cpp" />
-    <ClCompile Include="Tower\Floor\Floor.cpp" />-->
+    <ClCompile Include="Tower\Floor\Floor.cpp" />
+    <ClCompile Include="Tower\Tower.cpp" />
 	  <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
   </ItemGroup>
@@ -14,8 +14,8 @@
     <ClInclude Include="Monsters\Monster.h" />
     <ClInclude Include="Player\Hero.h" />
     <ClInclude Include="Intro.h" />
-    <!--<ClInclude Include="Tower\Tower.h" />
-    <ClInclude Include="Tower\Floor\Floor.h" />-->
+    <ClInclude Include="Tower\Floor\Floor.h" />
+    <ClInclude Include="Tower\Tower.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
   </ItemGroup>

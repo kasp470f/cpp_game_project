@@ -23,6 +23,12 @@ public:
 	inline const int& getHealthMax() const { return this->healthMax; }
 	inline const int& getSpeed() const { return this->speed; }
 
+	//Encounter-used functions
+	void printCombatStats();
+	inline void takeDamage(int damage) { health -= damage; }
+	inline void setDefense(int defense) { this->defense = defense; }
+
+
 private:
 	//Modifiers
 	string name;

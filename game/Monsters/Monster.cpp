@@ -22,7 +22,8 @@ Monster::Monster(string name, int health, int attack, int defense, int speed, in
     this->gold = gold;
 }
 
-Monster::~Monster() {
+Monster::~Monster() 
+{
 
 }
 
@@ -39,4 +40,15 @@ void Monster::printStats() {
     cout << "Speed: " << speed << endl;
     cout << "Exp: " << exp << endl;
     cout << "Gold: " << gold << endl;
+}
+
+//Encounter-used function
+void Monster::printCombatStats()
+{
+    cout << name 
+        << "[ HP: " << health
+        << " - ATK: " << attack
+        << " - DEF: " << defense
+        << " - SPD: " << speed
+        << " ]" << endl;
 }

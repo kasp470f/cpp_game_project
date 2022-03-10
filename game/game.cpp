@@ -2,7 +2,6 @@
 //
 
 #include <iostream>
-
 #include "Player/Hero.h"
 #include "Intro.h"
 //#include "Tower/Tower.h"
@@ -24,10 +23,7 @@ int main() {
 
 	intro.initIntro(hero);
 
-	while (intro.getPlaying())
+while (intro.getPlaying())
 	{
 		intro.mainMenu();
 	}
-
-	return 0;
-}
