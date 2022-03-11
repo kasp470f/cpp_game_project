@@ -1,7 +1,8 @@
 #pragma once
-#include <string>
 #include <iostream>
+#include "../Monsters/Monster.h"
 using namespace std;
+
 
 class Hero
 {
@@ -12,7 +13,6 @@ public:
 	//Functions
 	void initialize(const string name);
 	void printStats() const;
-	void combatStats();
 
 	//Accessors
 	inline const string& getName() const { return this->name; }
@@ -25,8 +25,15 @@ public:
 	inline const int& getHealthMax() const { return this->healthMax; }
 	inline const int& getSpeed() const { return this->speed; }
 
-	inline void takeDamage(int damage) { health -= damage; }
+	//Encounter-used functions
+	void printCombatStats();
+	void heroAttack(Monster* enemy);
+	inline void setHealth(int health) { 
+		if (getHealth() >= getHealthMax()) this->health = healthMax;
+		this->health = health;
+	}
 	inline void setDefense(int defense) { this->defense = defense; }
+	inline bool willHit();
 
 private:
 	//Modifiers
@@ -42,5 +49,4 @@ private:
 	int health;
 	int healthMax;
 	int speed;
-
 };

@@ -3,6 +3,8 @@
 #include "Player/Hero.h"
 #include <string>
 #include <iostream>
+#include <iomanip>
+#include "Inventory/Item.h"
 
 using namespace std;
 
@@ -14,6 +16,7 @@ public:
 
 	//Funktioner
 	void initIntro(Hero &hero);
+	void initInventory(Item& item);
 	void mainMenu();
 
 	//Accessor

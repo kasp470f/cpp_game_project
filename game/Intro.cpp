@@ -1,4 +1,5 @@
 #include "Intro.h"
+#include "Tower/Tower.h"
 
 Intro::Intro()
 {
@@ -10,7 +11,7 @@ Intro::~Intro()
 {
 }
 
-void Intro::initIntro(Hero &hero)
+void Intro::initIntro(Hero& hero)
 {
 	string name;
 	cout << "Welcome to the TOWER OF DOOM";
@@ -33,8 +34,9 @@ void Intro::initIntro(Hero &hero)
 void Intro::mainMenu()
 {
 	cout << "1: Enter the Tower of Doom" << endl;
-	cout << "2: Buy gear" << endl;
+	cout << "2: Buy gear (Not working atm)" << endl;
 	cout << "3: Character Stats" << endl;
+	cout << "4: Inventory" << endl;
 	cout << endl;
 	cout << "0: Quit Game" << endl;
 
@@ -46,19 +48,31 @@ void Intro::mainMenu()
 
 	choice = stoi(input);
 	cout << endl;
+
+	//Hvorfor kan denne ikke initialiseres i case 1 først?
+	Tower* tower;
+
 	switch (choice)
 	{
 	case 1:
-		playing = false;
+		system("cls");
+		tower = new Tower(hero, 100);
+		playing = true;
 		break;
 
 	case 2:
-		playing = true;
+		playing = false;
 		break;
 
 	case 3:
 		system("cls");
 		hero.printStats();
+		system("pause");
+		break;
+
+	case 4:
+		system("cls");
+		//inv.debugPrint();
 		system("pause");
 		break;
 
