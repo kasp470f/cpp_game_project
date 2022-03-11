@@ -2,17 +2,26 @@
 //
 
 #include <iostream>
-
 #include "Player/Hero.h"
 #include "Intro.h"
-#include "Tower/Floor/Floor.h"
+#include "Inventory/Inventory.h"
+//#include "Tower/Tower.h"
 
 int main() {
 	Hero hero;
 	Intro intro;
+
+	Inventory inv;
+
+	inv.addItem(Item());
+	inv.addItem(Item());
+	inv.addItem(Item());
+	inv.addItem(Item());
+	inv.addItem(Item());
+	inv.addItem(Item());
+	inv.addItem(Item());
+
+	//inv.debugPrint();
+
 	intro.initIntro(hero);
-
-	Floor s(hero, 1);
-
-	return 0;
 }
