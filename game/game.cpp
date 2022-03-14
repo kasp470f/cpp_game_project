@@ -10,7 +10,7 @@ using namespace irrklang;
 
 int main() {
 	ISoundEngine* engine = createIrrKlangDevice();
-	engine->play2D("audio/bell.wav");
+	engine->play2D("../audio/bell.wav");
 	Hero hero;
 	Intro intro;
 
