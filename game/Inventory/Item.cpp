@@ -1,20 +1,12 @@
 #include "Item.h"
 
-Item::Item()
+Item::Item(string name, int value)
 {
-	this->name = "Sword";
-	this->type = "NONE";
-	this->value = 0;
+	this->name = name;
+	this->value = value;
+
 }
 
 Item::~Item()
 {
-
-}
-
-void Item::printInventory() const
-{
-	cout << "=Inventory=" << endl;
-	cout << "Items: " << endl;
-	cout << "* " << this->name << endl;
 }

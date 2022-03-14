@@ -4,7 +4,9 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
-#include "Inventory/Item.h"
+#include "Tower/Floor/Floor.h"
+#include "Inventory/Type/Weapon.h"
+#include "Inventory/Type/Armor.h"
 
 using namespace std;
 

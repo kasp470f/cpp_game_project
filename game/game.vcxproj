@@ -116,10 +116,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>irrKlang.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -130,36 +133,46 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>irrKlang.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Inventory\Inventory.cpp" />
-    <ClCompile Include="Inventory\Item.cpp" />
     <!--<ClCompile Include="Tower\Floor\Floor.cpp" />-->
+    <ClCompile Include="Inventory\Inventory.cpp" />
+    <ClCompile Include="Inventory\Type\Armor.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="Intro.cpp" />
+    <ClCompile Include="Inventory\Item.cpp" />
     <ClCompile Include="Monsters\Monster.cpp" />
     <ClCompile Include="Player\Hero.cpp" />
     <ClCompile Include="Tower\Floor\Floor.cpp" />
     <ClCompile Include="Tower\Tower.cpp" />
+    <ClCompile Include="Inventory\Type\Weapon.cpp" />
     <!--<ClCompile Include="Tower\Tower.cpp" />-->
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Inventory\Inventory.h" />
-    <ClInclude Include="Inventory\Item.h" />
     <!--<ClInclude Include="Tower\Floor\Floor.h" />-->
+    <ClInclude Include="Inventory\Inventory.h" />
+    <ClInclude Include="Inventory\Type\Armor.h" />
     <ClInclude Include="Intro.h" />
+    <ClInclude Include="Inventory\Item.h" />
     <ClInclude Include="Monsters\Monster.h" />
     <ClInclude Include="Player\Hero.h" />
     <ClInclude Include="Tower\Floor\Floor.h" />
     <ClInclude Include="Tower\Tower.h" />
+    <ClInclude Include="Inventory\Type\Weapon.h" />
     <!--<ClInclude Include="Tower\Tower.h" />-->
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="audio\bell.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -26,7 +26,7 @@ void Hero::initialize(std::string name)
 	this->expNext =
 		expNext = static_cast<int>((50.0) / 3) * (pow(pcLevel, 3) -
 			6 * pow(pcLevel, 2) +
-			(17 * pcLevel) - 12);
+			(17 * pcLevel) - 12) + 100;
 
 	this->attackMin = 2;
 	this->attackMax = 4;

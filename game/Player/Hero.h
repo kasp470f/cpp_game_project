@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "../Monsters/Monster.h"
+#include "../Inventory/Inventory.h"
 using namespace std;
 
 
@@ -36,6 +37,8 @@ public:
 	inline bool willHit();
 
 private:
+	Inventory inventory;
+	//Armor armor;
 	//Modifiers
 	string name;
 	int pcLevel;

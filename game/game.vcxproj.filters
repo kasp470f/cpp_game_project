@@ -5,18 +5,25 @@
     <ClCompile Include="Monsters\Monster.cpp" />
     <ClCompile Include="Player\Hero.cpp" />
     <ClCompile Include="Intro.cpp" />
-    <ClCompile Include="Inventory\Inventory.cpp" />
-    <ClCompile Include="Inventory\Item.cpp" />
     <ClCompile Include="Tower\Floor\Floor.cpp" />
     <ClCompile Include="Tower\Tower.cpp" />
+    <ClCompile Include="Inventory\Item.cpp" />
+    <ClCompile Include="Inventory\Type\Weapon.cpp" />
+    <ClCompile Include="Inventory\Type\Armor.cpp" />
+    <ClCompile Include="Inventory\Inventory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Monsters\Monster.h" />
     <ClInclude Include="Player\Hero.h" />
     <ClInclude Include="Intro.h" />
-    <ClInclude Include="Inventory\Inventory.h" />
-    <ClInclude Include="Inventory\Item.h" />
     <ClInclude Include="Tower\Floor\Floor.h" />
     <ClInclude Include="Tower\Tower.h" />
+    <ClInclude Include="Inventory\Item.h" />
+    <ClInclude Include="Inventory\Type\Weapon.h" />
+    <ClInclude Include="Inventory\Type\Armor.h" />
+    <ClInclude Include="Inventory\Inventory.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="audio\bell.wav" />
   </ItemGroup>
 </Project>
