@@ -9,6 +9,8 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Tower\Floor\Floor.cpp" />
     <ClCompile Include="Tower\Tower.cpp" />
+    <ClCompile Include="Weapon.cpp" />
+    <ClCompile Include="Armor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Monsters\Monster.h" />
@@ -18,5 +20,7 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="Tower\Floor\Floor.h" />
     <ClInclude Include="Tower\Tower.h" />
+    <ClInclude Include="Weapon.h" />
+    <ClInclude Include="Armor.h" />
   </ItemGroup>
 </Project>

@@ -8,16 +8,21 @@ using namespace std;
 
 class Item 
 {
-private:
 	string name;
-	string type;
 	int value;
-	void printInventory() const;
-
 public:
-	Item();
+	Item(string name, int value);
 	virtual ~Item();
 
-	inline string debugPrint() const { return this->name; }
+	string type;
+	string getName() { return this->name; }
+	int getValue() { return this->value; }
+
+	virtual Item* clone() const = 0;
+	
+	virtual void debugPrint() const { 
+		cout << "[Name: " << this->name << " Value: " << this->value 
+			<< "]" << endl; 
+	}
 };
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Inventory.h"
+#include "../Weapon.h"
 
 class Hero
 {
@@ -28,8 +29,9 @@ public:
 	inline void takeDamage(int damage) { health -= damage; }
 	inline void setDefense(int defense) { this->defense = defense; }
 
-
 private:
+	Inventory inventory;
+	//Armor armor;
 	//Modifiers
 	string name;
 	int pcLevel;

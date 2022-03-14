@@ -5,6 +5,9 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
+#include "Tower/Floor/Floor.h"
+#include "Weapon.h"
+#include "Armor.h"
 
 using namespace std;
 

@@ -1,5 +1,5 @@
 #include "Intro.h"
-#include "Tower/Floor/Floor.h"
+
 
 Intro::Intro()
 {
@@ -33,14 +33,20 @@ void Intro::initIntro(Hero& hero)
 void Intro::mainMenu()
 {
 	Inventory inv;
-
-	inv.addItem(Item());
-	inv.addItem(Item());
-	inv.addItem(Item());
-	inv.addItem(Item());
-	inv.addItem(Item());
-	inv.addItem(Item());
-	inv.addItem(Item());
+	Weapon* weapon1 = new Weapon("Excalibur", 10000, 2, 4);
+	Armor* chest = new Armor("Chest of Doom", 5000, "Chest", 50);
+	Armor* helm = new Armor("Helm of Doom", 4000, "Helm", 40);
+	Armor* gloves = new Armor("Gloves of Doom", 3700, "Gloves", 37);
+	Armor* bracers = new Armor("Bracers of Doom", 3000, "Helm", 30);
+	Armor* leggings = new Armor("Leggings of Doom", 3500, "Helm", 35);
+	Armor* boots = new Armor("Boots of the Fairy", 100, "Helm", 1);
+	inv.addItem(*weapon1);
+	inv.addItem(*chest);
+	inv.addItem(*helm);
+	inv.addItem(*gloves);
+	inv.addItem(*bracers);
+	inv.addItem(*leggings);
+	inv.addItem(*boots);
 
 	cout << "1: Enter the Tower of Doom" << endl;
 	cout << "2: Buy gear (Not working atm)" << endl;
@@ -81,7 +87,7 @@ void Intro::mainMenu()
 
 	case 4:
 		system("cls");
-		inv.debugPrint();
+		inv.printInventory();
 		system("pause");
 		break;
 

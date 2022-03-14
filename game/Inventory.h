@@ -1,5 +1,12 @@
 #pragma once
-#include "Item.h"
+
+#include "Weapon.h"
+#include "Armor.h"
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
 
 class Inventory
 {
@@ -9,20 +16,18 @@ private:
 	//pointer-pointer
 	Item** itemArr;
 	void expand();
-	void initialize(const int from);
+	void initialize(const int from = 0);
+	
 
 public:
 	Inventory();
 	~Inventory();
+	Inventory(const Inventory& obj);
+	inline int size() const { return this->nrOfItems; }	
+	Item& operator [] (const int index);
 	//const bruges ved deklaration af en pointer (da positionen i hukommelsen er/skal være konstant).
 	void addItem(const Item& item);
 	void removeItem(int index);
-	inline void debugPrint() const
-	{
-		for (size_t i = 0; i < this->nrOfItems; i++)
-		{
-			std::cout << this->itemArr[i]->debugPrint() << std:: endl;
-		}
-	}
+	void printInventory() const;
 };
 
