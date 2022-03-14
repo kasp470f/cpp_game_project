@@ -1,6 +1,8 @@
 #pragma once
+#include <iostream>
+#include "../Monsters/Monster.h"
+using namespace std;
 
-#include "../Inventory.h"
 
 class Hero
 {
@@ -25,9 +27,13 @@ public:
 
 	//Encounter-used functions
 	void printCombatStats();
-	inline void takeDamage(int damage) { health -= damage; }
+	void heroAttack(Monster* enemy);
+	inline void setHealth(int health) { 
+		if (getHealth() >= getHealthMax()) this->health = healthMax;
+		this->health = health;
+	}
 	inline void setDefense(int defense) { this->defense = defense; }
-
+	inline bool willHit();
 
 private:
 	//Modifiers

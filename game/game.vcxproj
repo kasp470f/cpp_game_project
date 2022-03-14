@@ -139,8 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Inventory.cpp" />
-    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Inventory\Inventory.cpp" />
+    <ClCompile Include="Inventory\Item.cpp" />
     <!--<ClCompile Include="Tower\Floor\Floor.cpp" />-->
     <ClCompile Include="game.cpp" />
     <ClCompile Include="Intro.cpp" />
@@ -151,8 +151,8 @@
     <!--<ClCompile Include="Tower\Tower.cpp" />-->
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Inventory.h" />
-    <ClInclude Include="Item.h" />
+    <ClInclude Include="Inventory\Inventory.h" />
+    <ClInclude Include="Inventory\Item.h" />
     <!--<ClInclude Include="Tower\Floor\Floor.h" />-->
     <ClInclude Include="Intro.h" />
     <ClInclude Include="Monsters\Monster.h" />

@@ -52,9 +52,29 @@ void Hero::printStats() const
 //Encounter-used functions
 void Hero::printCombatStats()
 {
-	cout << "[ HP: " << health 
-		<< " - ATK: " << attackMax 
-		<< " - DEF: " << defense
-		<< " - SPD: "<< speed 
+	cout << name << endl
+		<< " [ HP: " << health 
+		<< " | ATK: " << attackMax 
+		<< " | DEF: " << defense
+		<< " | SPD: "<< speed 
 		<< " ]" << endl;
+}
+
+inline bool Hero::willHit()
+{
+	int heroAttackChance = rand() % 100 + 1;
+	if (heroAttackChance <= 75) { return true; }
+	return false;
+}
+
+void Hero::heroAttack(Monster* enemy)
+{
+	int heroAttackDamage = (int)ceil(getAttackMax() - (enemy->getDefense() / 2));
+	if (heroAttackDamage > 0 && willHit()) {
+		enemy->takeDamage(heroAttackDamage);
+		cout << getName() << " attacked " << enemy->getName() << " for " << heroAttackDamage << " damage!" << endl;
+	}
+	else {
+		cout << getName() << " attacked " << enemy->getName() << " but swung too wide and missed" << endl;
+	}
 }

@@ -1,5 +1,5 @@
 #include "Intro.h"
-#include "Tower/Floor/Floor.h"
+#include "Tower/Tower.h"
 
 Intro::Intro()
 {
@@ -28,20 +28,11 @@ void Intro::initIntro(Hero& hero)
 		system("cls");
 		mainMenu();
 	}
+	system("cls");
 }
 
 void Intro::mainMenu()
 {
-	Inventory inv;
-
-	inv.addItem(Item());
-	inv.addItem(Item());
-	inv.addItem(Item());
-	inv.addItem(Item());
-	inv.addItem(Item());
-	inv.addItem(Item());
-	inv.addItem(Item());
-
 	cout << "1: Enter the Tower of Doom" << endl;
 	cout << "2: Buy gear (Not working atm)" << endl;
 	cout << "3: Character Stats" << endl;
@@ -59,13 +50,13 @@ void Intro::mainMenu()
 	cout << endl;
 
 	//Hvorfor kan denne ikke initialiseres i case 1 først?
-	Floor* lvl;
+	Tower* tower;
 
 	switch (choice)
 	{
 	case 1:
 		system("cls");
-		lvl= new Floor(hero, 1);
+		tower = new Tower(hero, 100);
 		playing = true;
 		break;
 
@@ -81,7 +72,7 @@ void Intro::mainMenu()
 
 	case 4:
 		system("cls");
-		inv.debugPrint();
+		//inv.debugPrint();
 		system("pause");
 		break;
 

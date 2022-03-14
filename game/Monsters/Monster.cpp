@@ -45,10 +45,10 @@ void Monster::printStats() {
 //Encounter-used function
 void Monster::printCombatStats()
 {
-    cout << name 
-        << "[ HP: " << health
-        << " - ATK: " << attack
-        << " - DEF: " << defense
-        << " - SPD: " << speed
+    cout << name << endl
+        << " [ HP: " << health
+        << " | ATK: " << attack
+        << " | DEF: " << defense
+        << " | SPD: " << speed
         << " ]" << endl;
 }

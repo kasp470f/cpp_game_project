@@ -1,10 +1,10 @@
 #pragma once
 
 #include "Player/Hero.h"
-#include "Inventory.h"
 #include <string>
 #include <iostream>
 #include <iomanip>
+#include "Inventory/Item.h"
 
 using namespace std;
 
