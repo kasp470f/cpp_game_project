@@ -171,9 +171,6 @@
     <ClInclude Include="Inventory\Type\Weapon.h" />
     <!--<ClInclude Include="Tower\Tower.h" />-->
   </ItemGroup>
-  <ItemGroup>
-    <Media Include="audio\bell.wav" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

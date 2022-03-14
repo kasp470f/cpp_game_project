@@ -23,7 +23,4 @@
     <ClInclude Include="Inventory\Type\Armor.h" />
     <ClInclude Include="Inventory\Inventory.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Media Include="audio\bell.wav" />
-  </ItemGroup>
 </Project>
