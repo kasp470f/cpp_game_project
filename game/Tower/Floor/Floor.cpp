@@ -18,7 +18,9 @@ Floor::Floor(Hero& hero, int floorLevel)
 //Floor destructor
 Floor::~Floor(){ }
 
-// If Attack and Willhit from enemy is changed to be from the Monster class. It doesn't compile.
+
+#pragma region DontMove_Monster
+// If Attack and Willhit from enemy is changed to be from the Monster class. It doesn't compile. Because of a LNK2019 error which I can't solve.
 bool Floor::willEnemyHit()
 {
 	int enemyAttackChance = rand() % 100 + 1;
@@ -36,6 +38,8 @@ void Floor::enemyAttack() {
 		cout << enemy->getName() << " attacked " << hero->getName() << " but swung too wide and missed" << endl;
 	}
 }
+#pragma endregion
+
 
 void Floor::encounter()
 {
