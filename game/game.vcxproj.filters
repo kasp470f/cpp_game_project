@@ -22,5 +22,38 @@
     <ClInclude Include="Inventory\Type\Weapon.h" />
     <ClInclude Include="Inventory\Type\Armor.h" />
     <ClInclude Include="Inventory\Inventory.h" />
+    <ClInclude Include="include\ik_ESoundEngineOptions.h" />
+    <ClInclude Include="include\ik_ESoundOutputDrivers.h" />
+    <ClInclude Include="include\ik_EStreamModes.h" />
+    <ClInclude Include="include\ik_IAudioRecorder.h" />
+    <ClInclude Include="include\ik_IAudioStream.h" />
+    <ClInclude Include="include\ik_IAudioStreamLoader.h" />
+    <ClInclude Include="include\ik_IFileFactory.h" />
+    <ClInclude Include="include\ik_IFileReader.h" />
+    <ClInclude Include="include\ik_IRefCounted.h" />
+    <ClInclude Include="include\ik_irrKlangTypes.h" />
+    <ClInclude Include="include\ik_ISound.h" />
+    <ClInclude Include="include\ik_ISoundDeviceList.h" />
+    <ClInclude Include="include\ik_ISoundEffectControl.h" />
+    <ClInclude Include="include\ik_ISoundEngine.h" />
+    <ClInclude Include="include\ik_ISoundMixedOutputReceiver.h" />
+    <ClInclude Include="include\ik_ISoundSource.h" />
+    <ClInclude Include="include\ik_ISoundStopEventReceiver.h" />
+    <ClInclude Include="include\ik_IVirtualRefCounted.h" />
+    <ClInclude Include="include\ik_SAudioStreamFormat.h" />
+    <ClInclude Include="include\ik_vec3d.h" />
+    <ClInclude Include="include\irrKlang.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\ikpFlac.dll" />
+    <None Include="lib\ikpMP3.dll" />
+    <None Include="lib\irrKlang.dll" />
+    <None Include="lib\irrKlang.exp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\irrKlang.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="audio\bell.wav" />
   </ItemGroup>
 </Project>

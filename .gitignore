@@ -381,3 +381,7 @@ MigrationBackup/
 *.exe
 *.out
 *.app
+
+# Lib
+!game/lib/*
+!game/include/*
