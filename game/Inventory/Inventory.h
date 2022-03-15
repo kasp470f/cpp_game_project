@@ -25,7 +25,7 @@ public:
 	Inventory(const Inventory& obj);
 	inline int size() const { return this->nrOfItems; }
 	Item& operator [] (const int index);
-	//const bruges ved deklaration af en pointer (da positionen i hukommelsen er/skal v�re konstant).
+	//const bruges ved deklaration af en pointer (da positionen i hukommelsen er/skal vaere konstant).
 	void addItem(const Item& item);
 	void removeItem(int index);
 	void printInventory() const;
