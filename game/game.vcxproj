@@ -193,7 +193,7 @@
     <!--<ClInclude Include="Tower\Tower.h" />-->
   </ItemGroup>
   <ItemGroup>
-    <None Include="lib\irrKlang.exp" />
+    <Library Include="lib\irrKlang.lib" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="audio\bell.wav" />

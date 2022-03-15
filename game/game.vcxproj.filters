@@ -45,7 +45,13 @@
     <ClInclude Include="include\irrKlang.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="lib\ikpFlac.dll" />
+    <None Include="lib\ikpMP3.dll" />
+    <None Include="lib\irrKlang.dll" />
     <None Include="lib\irrKlang.exp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\irrKlang.lib" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="audio\bell.wav" />
