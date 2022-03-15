@@ -13,7 +13,7 @@ public:
 
 	inline Weapon* clone() const { return new Weapon(*this); }
 
-	void debugPrint() {
+	void printItem() {
 		cout << this->getName() << " [Damage: " << this->attackMin << " - "
 			<< this->attackMax << " | Value: " << this->getValue() << "g]"
 			<< endl;
