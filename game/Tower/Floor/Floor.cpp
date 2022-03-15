@@ -133,7 +133,7 @@ int Floor::actionSelection()
 		switch ((c = _getch())) {
 		case KEY_LEFT:
 			selectedAction--;
-			if (selectedAction < 0) selectedAction = 2;
+			if (selectedAction < 0) selectedAction = 3;
 			break;
 		case KEY_RIGHT:
 			selectedAction++;

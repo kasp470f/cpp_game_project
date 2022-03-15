@@ -20,7 +20,7 @@ public:
 
 	virtual Item* clone() const = 0;
 
-	virtual void debugPrint() const {
+	virtual void printItem() const {
 		cout << "[Name: " << this->name << " Value: " << this->value
 			<< "]" << endl;
 	}
