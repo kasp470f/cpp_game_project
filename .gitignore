@@ -383,5 +383,5 @@ MigrationBackup/
 *.app
 
 # Lib
-!game/lib/
-!game/include/
+!game/lib/*
+!game/include/*
