@@ -1,6 +1,9 @@
 #include "Game.h"
 #include "Tower/Tower.h"
 
+#define KEY_UP 72
+#define KEY_DOWN 80
+#define KEY_ENTER 13
 
 Game::Game()
 {
@@ -32,6 +35,62 @@ void Game::initGame(Hero& hero)
 	system("cls");
 }
 
+int Game::actionSelection()
+{
+	int selectedAction = 0;
+	bool checkingAction = true;
+	while (checkingAction) {
+		cout << "Welcome to the TOWER OF DOOM" << endl;
+
+		// Change the color of certain text part
+		if (selectedAction == 0) SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 112);
+		else SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+		cout << "[Enter the Tower of Doom]";
+
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+		cout << endl;
+
+		if (selectedAction == 1) SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 112);
+		else SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+		cout << "[Character Stats]";
+
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+		cout << endl;
+
+		if (selectedAction == 2) SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 112);
+		else SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+		cout << "[Inventory]";
+
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+		cout << endl;
+
+		if (selectedAction == 3) SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 112);
+		else SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+		cout << "[Quit Game]";
+
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+		cout << endl;
+
+		int c = 0;
+		switch ((c = _getch())) {
+		case KEY_UP:
+			selectedAction--;
+			if (selectedAction < 0) selectedAction = 3;
+			break;
+		case KEY_DOWN:
+			selectedAction++;
+			if (selectedAction > 3) selectedAction = 0;
+			break;
+		case KEY_ENTER:
+			checkingAction = false;
+			break;
+		}
+
+		system("cls");
+	}
+	return selectedAction;
+}
+
 void Game::mainMenu()
 {
 	Inventory inv;
@@ -50,53 +109,37 @@ void Game::mainMenu()
 	inv.addItem(*leggings);
 	inv.addItem(*boots);
 
-	cout << "1: Enter the Tower of Doom" << endl;
-	cout << "2: Buy gear (Not working atm)" << endl;
-	cout << "3: Character Stats" << endl;
-	cout << "4: Inventory" << endl;
-	cout << endl;
-	cout << "0: Quit Game" << endl;
+	
 
-	string input;
-	do
-	{
-		cin >> input;
-	} while (!isdigit(input[0]));
+	
 
-	choice = stoi(input);
+	choice = actionSelection();
 	cout << endl;
 
 	Tower* tower;
 
 	switch (choice)
 	{
-	case 1:
+	case 0:
 		system("cls");
 		tower = new Tower(hero, 100);
 		playing = true;
 		break;
 
-	case 2:
-		playing = false;
-		break;
-
-	case 3:
+	case 1:
 		system("cls");
 		hero.printStats();
 		system("pause");
 		break;
 
-	case 4:
+	case 2:
 		system("cls");
 		inv.printInventory();
 		system("pause");
 		break;
 
-	case 0:
+	case 3:
 		exit(1);
-		break;
-
-	default:
 		break;
 	}
 }
