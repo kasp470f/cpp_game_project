@@ -2,6 +2,7 @@
 #include "../Player/Hero.h"
 #include "Floor/Floor.h"
 #include <iostream>
+#include <irrKlang.h>
 using namespace std;
 
 

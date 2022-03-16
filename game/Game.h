@@ -10,15 +10,14 @@
 
 using namespace std;
 
-class Intro
+class Game
 {
 public:
-	Intro();
-	virtual ~Intro();
+	Game();
+	virtual ~Game();
 
 	//Funktioner
-	void initIntro(Hero &hero);
-	void initInventory(Item& item);
+	void initGame(Hero &hero);
 	void mainMenu();
 
 	//Accessor

@@ -5,11 +5,11 @@
 #define KEY_ENTER 13
 
 //Instantiates a new floor
-Floor::Floor(Hero& hero, int floorLevel)
+Floor::Floor(Hero& hero, int floorLevel, irrklang::ISoundEngine* soundEngine)
 {
 	this->hero = &hero;
 	this->enemy = new Monster();
-
+	this->soundEngine = soundEngine;
 	this->floorLevel = floorLevel;
 
 	encounter();
@@ -52,10 +52,12 @@ void Floor::encounter()
 		if (selectedAction == 0) {
 			//highest attackspeed hits first
 			if (hero->getSpeed() > enemy->getSpeed()) {
+				soundEngine->play2D("audio/attack.wav");
 				hero->heroAttack(enemy);
 				enemyAttack();
 			}
 			else {
+				soundEngine->play2D("audio/attack.wav");
 				enemyAttack();
 				hero->heroAttack(enemy);
 			}
@@ -67,6 +69,7 @@ void Floor::encounter()
 			hero->setDefense(increasedDefense);
 			cout << hero->getName() << " increased his defense by 5, bringing it up to " << increasedDefense << endl;
 			enemyAttack();
+			soundEngine->play2D("audio/defend.wav");
 
 			hero->setDefense(increasedDefense - 5);
 			cout << hero->getName() << "'s increased defense has returned to its normal state of " << hero->getDefense() << endl;
@@ -133,7 +136,7 @@ int Floor::actionSelection()
 		switch ((c = _getch())) {
 		case KEY_LEFT:
 			selectedAction--;
-			if (selectedAction < 0) selectedAction = 2;
+			if (selectedAction < 0) selectedAction = 3;
 			break;
 		case KEY_RIGHT:
 			selectedAction++;
