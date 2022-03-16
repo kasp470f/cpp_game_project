@@ -18,7 +18,7 @@ public:
 
 	//Funktioner
 	void initIntro(Hero &hero);
-	//void initInventory(Item& item);
+	void initInventory(Item& item);
 	void mainMenu();
 
 	//Accessor

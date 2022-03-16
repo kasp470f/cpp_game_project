@@ -1,4 +1,5 @@
 // game.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
 
 #include <iostream>
 #include "Player/Hero.h"
@@ -9,10 +10,7 @@ using namespace irrklang;
 
 int main() {
 	ISoundEngine* engine = createIrrKlangDevice();
-	engine->play2D("bell.wav");					//WORKING!
-	//engine->play2D("../audio/bell.wav");		//NOT WORKING!
-
-
+	engine->play2D("../audio/bell.wav");
 	Hero hero;
 	Intro intro;
 

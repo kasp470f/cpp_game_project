@@ -13,7 +13,7 @@ public:
 
 	inline Armor* clone() const { return new Armor(*this); }
 
-	void printItem() {
+	void debugPrint() {
 		cout << this->getName()
 			<< " [Slot: " << this->slot
 			<< " | Defense: " << this->defense

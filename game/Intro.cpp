@@ -66,6 +66,7 @@ void Intro::mainMenu()
 	choice = stoi(input);
 	cout << endl;
 
+	//Hvorfor kan denne ikke initialiseres i case 1 først?
 	Tower* tower;
 
 	switch (choice)
