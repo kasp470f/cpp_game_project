@@ -18,6 +18,7 @@ public:
 
 	//Funktioner
 	void initGame(Hero &hero);
+	int actionSelection();
 	void mainMenu();
 
 	//Accessor

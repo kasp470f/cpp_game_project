@@ -156,7 +156,9 @@ int Floor::actionSelection()
 void Floor::flee()
 {
 	cout << "-------- You flee... --------" << endl;
-	cout << "(impementation in progress)" << endl;
+	cout << "Ending game now..." << endl;
+	Sleep(2000);
+	exit(1);
 }
 
 void Floor::openInventory()
