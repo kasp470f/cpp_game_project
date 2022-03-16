@@ -6,6 +6,7 @@ Inventory::Inventory()
 	this->nrOfItems = 0;
 	this->itemArr = new Item * [cap];
 	this->initialize();
+
 }
 
 Inventory::~Inventory()
@@ -93,15 +94,15 @@ void Inventory::printInventory() const
 		cout << "*" << i + 1 << ": ";
 		if (itemArr[i]->type == "Weapon")
 		{
-			((Weapon*)itemArr[i])->printItem();
+			((Weapon*)itemArr[i])->debugPrint();
 		}
 		else if (itemArr[i]->type == "Armor")
 		{
-			((Armor*)itemArr[i])->printItem();
+			((Armor*)itemArr[i])->debugPrint();
 		}
 		else
 		{
-			itemArr[i]->printItem();
+			itemArr[i]->debugPrint();
 		}
 	}
 }
